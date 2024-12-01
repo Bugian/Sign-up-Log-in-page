@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+//sourceCompatibility = '17'
+//targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Database
+    implementation "mysql:mysql-connector-java:8.0.33"
+
+    // HikariCP
+    implementation "com.zaxxer:HikariCP:6.2.1"
+
+    // Spring Core
+    implementation 'org.springframework:spring-context:6.2.0'
+
+    // Spring Web
+    implementation 'org.springframework:spring-web:6.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.4.0'
+
+    // Password Encoder
+    implementation 'org.springframework.security:spring-security-crypto:6.4.1'
+
+    // Testing dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
+    testImplementation 'org.mockito:mockito-core:5.14.2'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.14.2'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+    testImplementation 'com.h2database:h2:2.3.232'
+    testImplementation 'ch.qos.logback:logback-classic:1.5.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
+
+    // Getters and Setters
+    implementation 'org.projectlombok:lombok:1.18.36'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    // Security
+    implementation "io.jsonwebtoken:jjwt-api:0.12.6"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:0.12.6"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:0.12.6"
+    implementation 'org.mindrot:jbcrypt:0.4'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
